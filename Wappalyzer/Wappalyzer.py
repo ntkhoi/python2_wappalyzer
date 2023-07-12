@@ -337,7 +337,10 @@ class Wappalyzer:
         """
         Retuns a list of the discovered versions for an app name.
         """
-        return [] if 'versions' not in self.technologies[app_name] else self.technologies[app_name]['versions']
+        try:
+            return [] if 'versions' not in self.technologies[app_name] else self.technologies[app_name]['versions']
+        except:
+            return []
 
     def get_confidence(self, app_name):
         """
