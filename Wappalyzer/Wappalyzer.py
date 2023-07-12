@@ -113,7 +113,7 @@ class Wappalyzer:
             Map of technology names to technology dicts, as in technologies.json.
         """
         self.categories = categories
-        self.technologies = technologies
+        self. technologies= technologies
 
         #TODO
         for name, technology in list(self.technologies.items()):
@@ -367,7 +367,10 @@ class Wappalyzer:
         versioned_apps = {}
 
         for app_name in detected_apps:
-            versions = self.get_versions(app_name)
+            try:
+                versions = self.get_versions(app_name)
+            except:
+                versions = []
             versioned_apps[app_name] = {"versions": versions}
 
         return versioned_apps
